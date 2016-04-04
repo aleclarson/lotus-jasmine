@@ -25,7 +25,8 @@ module.exports = {
     return deferred.promise;
   },
   addReporter: function(reporter) {
-    var addEvent, event, events, shim, shimmed;
+    var addEvent, env, event, events, shim, shimmed;
+    reporter.suite = this;
     shim = {};
     events = {
       specStarted: "startOne",
@@ -53,8 +54,11 @@ module.exports = {
       event = events[shimmed];
       addEvent(shimmed, event);
     }
-    this.jasmine.getEnv().addReporter(shim);
-    return reporter.suite = this;
+    env = this.jasmine.getEnv();
+    env.addReporter(shim);
+    return env.specFilter = function() {
+      return true;
+    };
   }
 };
 

@@ -23,6 +23,8 @@ module.exports =
 
   addReporter: (reporter) ->
 
+    reporter.suite = this
+
     shim = {}
 
     events =
@@ -46,6 +48,9 @@ module.exports =
     for shimmed, event of events
       addEvent shimmed, event
 
-    @jasmine.getEnv().addReporter shim
+    env = @jasmine.getEnv()
 
-    reporter.suite = this
+    env.addReporter shim
+
+    # TODO: Make this customizable with 'minimatch'.
+    env.specFilter = -> yes

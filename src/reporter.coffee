@@ -10,11 +10,10 @@ isBenchmark = (spec) ->
 
 module.exports =
 
-  startAll: (info) ->
-
+  startAll: ->
     @specsPassed = 0
-    @specsFound = info.totalSpecsDefined
     @startTime = Date.now()
+    log.pushIndent 2
     log.moat 1
 
   startSome: (suite) ->
@@ -31,29 +30,30 @@ module.exports =
 
   finishOne: (spec) ->
 
-    unless isBenchmark spec
-      elapsedTime = Date.now() - spec.startTime
-      log.pink " ", elapsedTime, "ms"
-      log.moat 1
+    return if spec.status is "disabled"
 
     if spec.status isnt "failed"
-      return @specsPassed++
+      @specsPassed += 1
+      return
 
     log.plusIndent 2
     log.moat 1
-    for expectation in spec.failedExpectations
-      log.red expectation.message
+    for { message, error } in spec.failedExpectations
+      log.red message
+      log.moat 0
+      log.gray.dim error.stack.split(log.ln).slice(1, 10).join(log.ln)
       log.moat 1
     log.popIndent()
 
   finishSome: ->
     log.popIndent()
 
-  finishAll: ->
+  finishAll: (info) ->
+    specsExecuted = info.totalSpecsExecuted
     elapsedTime = Date.now() - @startTime
     log.moat 1
-    tint = if @specsPassed is @specsFound then "green" else "red"
-    log[tint] @specsPassed, " / ", @specsFound
+    tint = if @specsPassed is specsExecuted then "green" else "red"
+    log[tint] @specsPassed, " / ", specsExecuted
     log " tests passed in "
     log.pink elapsedTime, "ms"
     log.moat 1
