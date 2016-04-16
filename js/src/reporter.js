@@ -1,12 +1,8 @@
-var isBenchmark, log, plural, repeatString;
-
-require("lotus-require");
+var isBenchmark, plural, repeatString;
 
 repeatString = require("repeat-string");
 
 plural = require("plural");
-
-log = require("lotus-log");
 
 isBenchmark = function(spec) {
   return spec.description === "has a benchmark";
@@ -36,7 +32,7 @@ module.exports = {
     }
   },
   finishOne: function(spec) {
-    var error, i, len, message, ref, ref1;
+    var i, len, message, ref, ref1, stack;
     if (spec.status === "disabled") {
       return;
     }
@@ -48,10 +44,10 @@ module.exports = {
     log.moat(1);
     ref = spec.failedExpectations;
     for (i = 0, len = ref.length; i < len; i++) {
-      ref1 = ref[i], message = ref1.message, error = ref1.error;
+      ref1 = ref[i], message = ref1.message, stack = ref1.stack;
       log.red(message);
       log.moat(0);
-      log.gray.dim(error.stack.split(log.ln).slice(1, 10).join(log.ln));
+      log.gray.dim(stack);
       log.moat(1);
     }
     return log.popIndent();

@@ -1,7 +1,3 @@
-var Q;
-
-Q = require("q");
-
 module.exports = {
   path: "jasmine/index.js",
   load: function(arg) {
@@ -44,9 +40,11 @@ module.exports = {
         } catch (_error) {
           error = _error;
           log.moat(1);
-          log("Reporter event failed: '" + event + "'");
-          log.moat(1);
-          return log.error(error);
+          log.white("Reporter event failed: ");
+          log.red(event);
+          log.moat(0);
+          log.gray.dim(error.stack.split(log.ln).slice(0, 11).join(log.ln));
+          return log.moat(1);
         }
       };
     };

@@ -1,6 +1,4 @@
 
-Q = require "q"
-
 module.exports =
 
   path: "jasmine/index.js"
@@ -41,9 +39,11 @@ module.exports =
           reporter[event].apply reporter, arguments
         catch error
           log.moat 1
-          log "Reporter event failed: '#{event}'"
+          log.white "Reporter event failed: "
+          log.red event
+          log.moat 0
+          log.gray.dim error.stack.split(log.ln).slice(0, 11).join(log.ln)
           log.moat 1
-          log.error error
 
     for shimmed, event of events
       addEvent shimmed, event

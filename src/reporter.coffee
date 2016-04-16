@@ -1,9 +1,6 @@
 
-require "lotus-require"
-
 repeatString = require "repeat-string"
 plural = require "plural"
-log = require "lotus-log"
 
 isBenchmark = (spec) ->
   spec.description is "has a benchmark"
@@ -38,10 +35,10 @@ module.exports =
 
     log.plusIndent 2
     log.moat 1
-    for { message, error } in spec.failedExpectations
+    for { message, stack } in spec.failedExpectations
       log.red message
       log.moat 0
-      log.gray.dim error.stack.split(log.ln).slice(1, 10).join(log.ln)
+      log.gray.dim stack
       log.moat 1
     log.popIndent()
 
