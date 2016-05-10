@@ -1,11 +1,11 @@
 
-module.exports =
+Q = require "q"
 
-  path: "jasmine/index.js"
+module.exports =
 
   load: ({ reporter }) ->
 
-    jasmine = require @entry
+    jasmine = require "jasmine/index.js"
     @jasmine = jasmine.core jasmine
 
     # Expose global Jasmine interface.

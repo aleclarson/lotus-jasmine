@@ -1,12 +1,10 @@
 {
   "name": "lotus-jasmine",
-  "description": "'jasmine' meets 'lotus-runner'",
   "version": "1.0.0",
   "main": "js/src/suite",
   "dependencies": {
     "jasmine": "aleclarson/jasmine#2.3.5",
-    "plural": "^0.1.6",
-    "repeat-string": "^1.5.2"
+    "q": "aleclarson/q#1.0.0"
   },
   "lotus": {
     "plugins": [

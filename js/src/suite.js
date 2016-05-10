@@ -1,9 +1,12 @@
+var Q;
+
+Q = require("q");
+
 module.exports = {
-  path: "jasmine/index.js",
   load: function(arg) {
     var jasmine, key, ref, reporter, value;
     reporter = arg.reporter;
-    jasmine = require(this.entry);
+    jasmine = require("jasmine/index.js");
     this.jasmine = jasmine.core(jasmine);
     ref = jasmine["interface"](this.jasmine, this.jasmine.getEnv());
     for (key in ref) {
@@ -37,8 +40,8 @@ module.exports = {
         var error;
         try {
           return reporter[event].apply(reporter, arguments);
-        } catch (_error) {
-          error = _error;
+        } catch (error1) {
+          error = error1;
           log.moat(1);
           log.white("Reporter event failed: ");
           log.red(event);

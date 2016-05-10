@@ -1,8 +1,6 @@
-var isBenchmark, plural, repeatString;
+var Q, isBenchmark;
 
-repeatString = require("repeat-string");
-
-plural = require("plural");
+Q = require("q");
 
 isBenchmark = function(spec) {
   return spec.description === "has a benchmark";

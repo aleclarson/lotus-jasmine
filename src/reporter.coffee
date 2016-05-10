@@ -1,6 +1,5 @@
 
-repeatString = require "repeat-string"
-plural = require "plural"
+Q = require "q"
 
 isBenchmark = (spec) ->
   spec.description is "has a benchmark"
