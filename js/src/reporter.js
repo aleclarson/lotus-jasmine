@@ -1,4 +1,6 @@
-var Q, isBenchmark;
+var Q, emptyFunction, isBenchmark;
+
+emptyFunction = require("emptyFunction");
 
 Q = require("q");
 
@@ -24,7 +26,8 @@ module.exports = {
       spec.startTime = Date.now();
     }
     log.moat(1);
-    log.gray.dim(spec.description);
+    log.yellow.dim("- ");
+    log.yellow(spec.description);
     if (isBenchmark(spec)) {
       return log.moat(1);
     }
@@ -38,8 +41,8 @@ module.exports = {
       this.specsPassed += 1;
       return;
     }
-    log.plusIndent(2);
     log.moat(1);
+    log.plusIndent(2);
     ref = spec.failedExpectations;
     for (i = 0, len = ref.length; i < len; i++) {
       ref1 = ref[i], message = ref1.message, stack = ref1.stack;

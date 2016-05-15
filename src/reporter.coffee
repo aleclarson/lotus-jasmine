@@ -1,4 +1,5 @@
 
+emptyFunction = require "emptyFunction"
 Q = require "q"
 
 isBenchmark = (spec) ->
@@ -21,19 +22,21 @@ module.exports =
   startOne: (spec) ->
     spec.startTime = Date.now() unless isBenchmark spec
     log.moat 1
-    log.gray.dim spec.description
+    log.yellow.dim "- "
+    log.yellow spec.description
     log.moat 1 if isBenchmark spec
 
   finishOne: (spec) ->
 
-    return if spec.status is "disabled"
+    if spec.status is "disabled"
+      return
 
     if spec.status isnt "failed"
       @specsPassed += 1
       return
 
-    log.plusIndent 2
     log.moat 1
+    log.plusIndent 2
     for { message, stack } in spec.failedExpectations
       log.red message
       log.moat 0

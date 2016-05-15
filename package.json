@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "js/src/suite",
   "dependencies": {
+    "emptyFunction": "aleclarson/emptyFunction#1.0.0",
     "jasmine": "aleclarson/jasmine#2.3.5",
     "q": "aleclarson/q#1.0.0"
   },
