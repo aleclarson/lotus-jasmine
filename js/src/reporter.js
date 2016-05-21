@@ -1,6 +1,8 @@
-var Q, emptyFunction, isBenchmark;
+var Q, emptyFunction, isBenchmark, log;
 
 emptyFunction = require("emptyFunction");
+
+log = require("log");
 
 Q = require("q");
 

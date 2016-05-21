@@ -5,6 +5,7 @@
   "dependencies": {
     "emptyFunction": "aleclarson/emptyFunction#1.0.0",
     "jasmine": "aleclarson/jasmine#2.3.5",
+    "log": "aleclarson/log#1.0.0",
     "q": "aleclarson/q#1.0.0"
   },
   "lotus": {

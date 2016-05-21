@@ -1,4 +1,5 @@
 
+log = require "log"
 Q = require "q"
 
 module.exports =

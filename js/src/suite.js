@@ -1,4 +1,6 @@
-var Q;
+var Q, log;
+
+log = require("log");
 
 Q = require("q");
 

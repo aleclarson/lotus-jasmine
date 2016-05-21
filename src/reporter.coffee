@@ -1,5 +1,6 @@
 
 emptyFunction = require "emptyFunction"
+log = require "log"
 Q = require "q"
 
 isBenchmark = (spec) ->
