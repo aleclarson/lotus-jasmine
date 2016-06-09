@@ -1,10 +1,8 @@
-var Q, emptyFunction, isBenchmark, log;
+var emptyFunction, isBenchmark, log;
 
 emptyFunction = require("emptyFunction");
 
 log = require("log");
-
-Q = require("q");
 
 isBenchmark = function(spec) {
   return spec.description === "has a benchmark";

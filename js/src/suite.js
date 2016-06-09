@@ -1,8 +1,8 @@
-var Q, log;
+var Promise, log;
+
+Promise = require("Promise");
 
 log = require("log");
-
-Q = require("q");
 
 module.exports = {
   load: function(arg) {
@@ -21,7 +21,7 @@ module.exports = {
   },
   start: function() {
     var deferred;
-    deferred = Q.defer();
+    deferred = Promise.defer();
     this.jasmine.getEnv().execute(deferred.resolve);
     return deferred.promise;
   },

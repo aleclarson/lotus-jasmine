@@ -1,6 +1,6 @@
 
+Promise = require "Promise"
 log = require "log"
-Q = require "q"
 
 module.exports =
 
@@ -16,9 +16,9 @@ module.exports =
     @addReporter reporter if reporter?
 
   start: ->
-    deferred = Q.defer()
+    deferred = Promise.defer()
     @jasmine.getEnv().execute deferred.resolve
-    deferred.promise
+    return deferred.promise
 
   addReporter: (reporter) ->
 
