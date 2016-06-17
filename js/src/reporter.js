@@ -17,7 +17,7 @@ module.exports = {
   },
   startSome: function(suite) {
     log.moat(1);
-    log.green(suite.description);
+    log.white(suite.description);
     log.moat(1);
     return log.plusIndent(2);
   },
@@ -26,8 +26,7 @@ module.exports = {
       spec.startTime = Date.now();
     }
     log.moat(1);
-    log.yellow.dim("- ");
-    log.yellow(spec.description);
+    log.gray("- ", spec.description);
     if (isBenchmark(spec)) {
       return log.moat(1);
     }

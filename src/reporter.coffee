@@ -15,15 +15,14 @@ module.exports =
 
   startSome: (suite) ->
     log.moat 1
-    log.green suite.description
+    log.white suite.description
     log.moat 1
     log.plusIndent 2
 
   startOne: (spec) ->
     spec.startTime = Date.now() unless isBenchmark spec
     log.moat 1
-    log.yellow.dim "- "
-    log.yellow spec.description
+    log.gray "- ", spec.description
     log.moat 1 if isBenchmark spec
 
   finishOne: (spec) ->
