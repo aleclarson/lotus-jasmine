@@ -10,10 +10,8 @@
     "postinstall": "postinstall-build js 'npm run build'"
   },
   "dependencies": {
-    "Promise": "aleclarson/Promise#1.0.0",
     "emptyFunction": "aleclarson/emptyFunction#1.0.0",
     "jasmine": "aleclarson/jasmine#2.3.5",
-    "log": "aleclarson/log#1.0.0",
     "postinstall-build": "0.2.x"
   },
   "devDependencies": {
