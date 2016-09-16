@@ -1,1 +1,1 @@
-module.exports = require("./js/src/reporter")
+module.exports = require("./js/reporter")
