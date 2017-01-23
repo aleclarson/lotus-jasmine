@@ -1,0 +1,16 @@
+{
+  "name": "lotus-jasmine",
+  "version": "1.0.0",
+  "main": "js/suite",
+  "plugins": [
+    "lotus-coffee"
+  ],
+  "scripts": {
+    "build": "coffee-build -v 1.11.x -b -o js src",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "emptyFunction": "aleclarson/emptyFunction#1.0.0",
+    "jasmine": "aleclarson/jasmine#2.3.5"
+  }
+}
