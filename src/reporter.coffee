@@ -1,6 +1,5 @@
 
 emptyFunction = require "emptyFunction"
-log = require "log"
 
 isBenchmark = (spec) ->
   spec.description is "has a benchmark"

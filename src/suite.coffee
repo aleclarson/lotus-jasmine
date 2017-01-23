@@ -1,7 +1,4 @@
 
-Promise = require "Promise"
-log = require "log"
-
 module.exports =
 
   load: ({ reporter }) ->
