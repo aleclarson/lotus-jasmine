@@ -26,8 +26,9 @@ module.exports =
 
   finishOne: (spec) ->
 
-    if spec.status is "disabled"
-      return
+    # Using `fit` causes all other tests to finish as "disabled".
+    # Using `xit` causes those tests to finish as "pending".
+    return if /^(disabled|pending)$/.test spec.status
 
     if spec.status isnt "failed"
       @specsPassed += 1
