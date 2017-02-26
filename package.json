@@ -1,6 +1,6 @@
 {
   "name": "lotus-jasmine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "js/suite",
   "plugins": [
     "lotus-coffee"
