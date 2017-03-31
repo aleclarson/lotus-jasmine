@@ -1,0 +1,21 @@
+{
+  "emptyFunction": {
+    "path": "/Users/aleclarsoniv/lib/modules/emptyFunction",
+    "dependers": [
+      "lotus-jasmine"
+    ]
+  },
+  "postinstall-build": {
+    "remote": true,
+    "dependers": [
+      "emptyFunction",
+      "lotus-jasmine"
+    ]
+  },
+  "jasmine": {
+    "path": "/Users/aleclarsoniv/lib/modules/jasmine",
+    "dependers": [
+      "lotus-jasmine"
+    ]
+  }
+}
