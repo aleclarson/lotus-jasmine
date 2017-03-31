@@ -1,5 +1,6 @@
 
 emptyFunction = require "emptyFunction"
+now = require "performance-now"
 
 isBenchmark = (spec) ->
   spec.description is "has a benchmark"
@@ -8,7 +9,7 @@ module.exports =
 
   startAll: ->
     @specsPassed = 0
-    @startTime = Date.now()
+    @startTime = now()
     log.pushIndent 2
     log.moat 1
 
@@ -19,7 +20,7 @@ module.exports =
     log.plusIndent 2
 
   startOne: (spec) ->
-    spec.startTime = Date.now() unless isBenchmark spec
+    spec.startTime = now() unless isBenchmark spec
     log.moat 1
     log.gray "- ", spec.description
     log.moat 1 if isBenchmark spec
@@ -48,7 +49,7 @@ module.exports =
 
   finishAll: (info) ->
     specsExecuted = info.totalSpecsExecuted
-    elapsedTime = Date.now() - @startTime
+    elapsedTime = now() - @startTime
     log.moat 1
     tint = if @specsPassed is specsExecuted then "green" else "red"
     log[tint] @specsPassed, " / ", specsExecuted

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "emptyFunction": "aleclarson/emptyFunction#1.0.0",
-    "jasmine": "aleclarson/jasmine#2.3.5"
+    "jasmine": "aleclarson/jasmine#2.3.5",
+    "performance-now": "^2.1.0"
   }
 }
