@@ -54,6 +54,6 @@ module.exports =
     tint = if @specsPassed is specsExecuted then "green" else "red"
     log[tint] @specsPassed, " / ", specsExecuted
     log " tests passed in "
-    log.pink elapsedTime, "ms"
+    log.pink elapsedTime.toFixed(2), "ms"
     log.moat 1
     log.popIndent()
